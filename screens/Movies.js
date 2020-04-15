@@ -1,4 +1,8 @@
 import React from "react";
-import { Text } from "react-native";
+import { Text, View } from "react-native";
 
-export default () => <Text>TV</Text>;
+export default () => (
+  <View>
+    <Text>Movie</Text>
+  </View>
+);

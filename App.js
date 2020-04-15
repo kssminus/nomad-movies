@@ -3,6 +3,7 @@ import { AppLoading } from "expo";
 import * as Font from "expo-font";
 import { Ionicons } from "@expo/vector-icons";
 import { StyleSheet, Text, View } from "react-native";
+import TabNavigation from "./navigation/TabNavigation";
 
 export default function App() {
   const [loaded, setLoaded] = useState(false);
@@ -18,11 +19,7 @@ export default function App() {
   };
 
   if (loaded) {
-    return (
-      <View style={styles.container}>
-        <Text> Open up App.js to start working on your app!</Text>
-      </View>
-    );
+    return <TabNavigation />;
   } else {
     return (
       <AppLoading
