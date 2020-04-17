@@ -1,8 +1,12 @@
 import React from "react";
-import { Text, View } from "react-native";
+import { Text, View, TouchableOpacity } from "react-native";
 
-export default () => (
+export default ({ navigation }) => (
   <View>
     <Text>Movie</Text>
+    <Text>Movie</Text>
+    <TouchableOpacity onPress={() => navigation.navigate("Detail")}>
+      <Text>Detail</Text>
+    </TouchableOpacity>
   </View>
 );
