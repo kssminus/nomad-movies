@@ -8,8 +8,8 @@ const defaultParams = {
 
 export const TV_API = {
   topRated: () =>
-    Axios.get(`${baseURL}/tv/top_rated`, { params: defaultParams }),
-  popular: () => Axios.get(`${baseURL}/tv/popular`, { params: defaultParams }),
+    Axios.get(`${baseUrl}/tv/top_rated`, { params: defaultParams }),
+  popular: () => Axios.get(`${baseUrl}/tv/popular`, { params: defaultParams }),
   airingToday: () =>
     Axios.get(`${baseUrl}/tv/airing_today`, { params: defaultParams }),
   tvDetail: (id) =>
