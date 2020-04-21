@@ -7,6 +7,8 @@ import SearchScreen from "../screens/Search";
 import TVScreen from "../screens/TV";
 import { BG_COLOR } from "../constants/Colors";
 import TabBarIcon from "../components/TabBarIcon";
+import { createStack } from "./config";
+import { createStackNavigator } from "@react-navigation/stack";
 
 const Tab = createBottomTabNavigator();
 
@@ -18,12 +20,14 @@ export default function TabNavigation() {
           backgroundColor: BG_COLOR,
         },
       }}
-      headerMode="none"
     >
       <Tab.Screen
         name="Movie"
-        component={MoviesScreen}
+        component={createStack(MoviesScreen, "Movie")}
         options={{
+          headerStyle: {
+            backgroundColor: "white",
+          },
           tabBarIcon: (props) => {
             return (
               <TabBarIcon
@@ -36,7 +40,7 @@ export default function TabNavigation() {
       />
       <Tab.Screen
         name="TV"
-        component={TVScreen}
+        component={createStack(TVScreen, "TV")}
         options={{
           tabBarIcon: (props) => {
             return (
@@ -50,7 +54,7 @@ export default function TabNavigation() {
       />
       <Tab.Screen
         name="Search"
-        component={SearchScreen}
+        component={createStack(SearchScreen, "Search")}
         options={{
           tabBarIcon: (props) => {
             return (

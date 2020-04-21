@@ -1,4 +1,18 @@
 import React from "react";
-import { Text } from "react-native";
+import { Text, View } from "react-native";
+import { createStackNavigator } from "@react-navigation/stack";
+import { headerStyle } from "../navigation/config";
 
-export default () => <Text>Detail</Text>;
+const Stack = createStackNavigator();
+const body = () => <Text>Detail</Text>;
+export default () => {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen
+        name="Detail"
+        component={body}
+        options={{ ...headerStyle }}
+      />
+    </Stack.Navigator>
+  );
+};

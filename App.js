@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { AppLoading } from "expo";
 import * as Font from "expo-font";
 import { Ionicons } from "@expo/vector-icons";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, StatusBar, Text, View } from "react-native";
 import MainNavigation from "./navigation/MainNavigation";
 
 export default function App() {
@@ -19,7 +19,12 @@ export default function App() {
   };
 
   if (loaded) {
-    return <MainNavigation />;
+    return (
+      <>
+        <StatusBar barStyle="light-content" />
+        <MainNavigation />
+      </>
+    );
   } else {
     return (
       <AppLoading

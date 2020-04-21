@@ -10,13 +10,9 @@ const Stack = createStackNavigator();
 const MainNavigation = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator mode="modal">
+      <Stack.Navigator mode="card" headerMode="none">
         <Stack.Screen name="Tabs" component={TabNavigation} />
-        <Stack.Screen
-          name="Detail"
-          component={Detail}
-          options={{ headerBackTitleVisible: false }}
-        />
+        <Stack.Screen name="Detail" component={Detail} />
       </Stack.Navigator>
     </NavigationContainer>
   );
