@@ -33,5 +33,5 @@ export default () => {
       setLoading(false);
     }
   }, []);
-  return <MoviesPresenter loading={loading} />;
+  return <MoviesPresenter loading={loading} nowPlaying={nowPlaying} />;
 };
