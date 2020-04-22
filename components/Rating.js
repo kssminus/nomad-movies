@@ -4,7 +4,7 @@ import styled from "styled-components/native";
 import { TINT_COLOR, GREY_COLOR } from "../constants/Colors";
 
 const Text = styled.Text`
-  color: ${(props) => (props.inSlide ? TINT_COLOR : GREY_COLOR)};
+  color: ${(props) => (props.slide ? TINT_COLOR : GREY_COLOR)};
   font-size: ${(props) => (props.inSlide ? "12px" : "10px")};
   padding-bottom: 5px;
 `;

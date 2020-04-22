@@ -33,5 +33,12 @@ export default () => {
       setLoading(false);
     }
   }, []);
-  return <MoviesPresenter loading={loading} nowPlaying={nowPlaying} />;
+  return (
+    <MoviesPresenter
+      loading={loading}
+      nowPlaying={nowPlaying}
+      popular={popular}
+      upcoming={upcoming}
+    />
+  );
 };

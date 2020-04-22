@@ -32,7 +32,14 @@ export default () => {
     } finally {
       setLoading(false);
     }
-  });
+  }, []);
 
-  return <TVPresenter loading={loading} />;
+  return (
+    <TVPresenter
+      loading={loading}
+      topRated={topRated}
+      popular={popular}
+      airingToday={airingToday}
+    />
+  );
 };
