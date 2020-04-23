@@ -15,6 +15,7 @@ const Tab = createBottomTabNavigator();
 export default function TabNavigation() {
   return (
     <Tab.Navigator
+      initialRouteName="search"
       tabBarOptions={{
         style: {
           backgroundColor: BG_COLOR,
