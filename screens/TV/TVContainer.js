@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import TVPresenter from "./TVPresenter";
 import { TV_API } from "../../api";
+import { posterFilter } from "../../utils";
 
 export default () => {
   const [loading, setLoading] = useState(true);
@@ -20,9 +21,9 @@ export default () => {
         data: { results: airingTodayData },
       } = await TV_API.airingToday();
 
-      setTopRated(topRatedData);
-      setPopular(popularData);
-      setAiringToday(airingTodayData);
+      setTopRated(topRatedData.filter(posterFilter));
+      setPopular(popularData.filter(posterFilter));
+      setAiringToday(airingTodayData.filter(posterFilter));
     }
 
     try {

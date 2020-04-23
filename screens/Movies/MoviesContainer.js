@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import MoviesPresenter from "./MoviesPresenter";
 import { MOVIE_API } from "../../api";
+import { posterFilter } from "../../utils";
 
 export default () => {
   const [loading, setLoading] = useState(true);
@@ -20,9 +21,9 @@ export default () => {
         data: { results: popularData },
       } = await MOVIE_API.popular();
 
-      setNowPlaying(nowPlayingData);
-      setUpcomming(upcomingData);
-      setPopular(popularData);
+      setNowPlaying(nowPlayingData.filter(posterFilter));
+      setUpcomming(upcomingData.filter(posterFilter));
+      setPopular(popularData.filter(posterFilter));
     }
 
     try {

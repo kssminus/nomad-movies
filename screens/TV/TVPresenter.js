@@ -10,14 +10,15 @@ const Container = styled.ScrollView`
 `;
 
 const TVPresenter = ({ loading, topRated, popular, airingToday }) => {
-  console.log(popular);
   return loading ? (
     <Loader />
   ) : (
     <Container>
       {airingToday && <Section title="Airing Today" contents={airingToday} />}
       {popular && <Section title="Popular TV" contents={popular} />}
-      {topRated && <Section title="Top Rated" contents={topRated} />}
+      {topRated && (
+        <Section title="Top Rated" contents={topRated} horizontal={false} />
+      )}
     </Container>
   );
 };

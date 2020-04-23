@@ -53,8 +53,8 @@ const Item = ({
         {vote_average ? <Rating rate={vote_average} /> : null}
         {!horizontal && overview ? (
           <Overview>
-            {overview.length > 270
-              ? `${overview.substring(0, 270)}...`
+            {overview.length > 200
+              ? `${overview.substring(0, 200)}...`
               : overview}
           </Overview>
         ) : null}
