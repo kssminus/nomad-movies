@@ -12,6 +12,7 @@ const Slider = (props) => {
     <Swiper
       showsPagination={false}
       autoplay
+      autoplayTimeout={5}
       style={{
         height: SwiperHeight,
       }}

@@ -29,7 +29,3 @@ export const createStack = (screen, name) => {
     );
   };
 };
-
-export const makePhotoUrl = (path, size = 500) => {
-  return `https://image.tmdb.org/t/p/${size}${path}`;
-};

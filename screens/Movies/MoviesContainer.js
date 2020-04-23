@@ -3,7 +3,7 @@ import MoviesPresenter from "./MoviesPresenter";
 import { MOVIE_API } from "../../api";
 import { posterFilter } from "../../utils";
 
-export default () => {
+const MoviesContainer = (props) => {
   const [loading, setLoading] = useState(true);
   const [nowPlaying, setNowPlaying] = useState([]);
   const [upcoming, setUpcomming] = useState([]);
@@ -43,3 +43,5 @@ export default () => {
     />
   );
 };
+
+export default MoviesContainer;

@@ -14,7 +14,7 @@ const Title = styled.Text`
   font-weight: 600;
 `;
 
-const Section = ({ title, contents, horizontal = true }) => {
+const Section = ({ title, contents, horizontal = true, navigation }) => {
   return (
     <Container>
       <Title>{title}</Title>
@@ -22,7 +22,7 @@ const Section = ({ title, contents, horizontal = true }) => {
         {contents
           .filter((content) => content.poster_path != null)
           .map((content) => (
-            <Item {...content} key={content.id} horizontal={horizontal} />
+            <Item key={content.id} {...content} horizontal={horizontal} />
           ))}
       </ScrollView>
     </Container>
@@ -35,4 +35,5 @@ Section.propTypes = {
   horizontal: PropTypes.bool,
 };
 
+// export default withNavigation(Section);
 export default Section;

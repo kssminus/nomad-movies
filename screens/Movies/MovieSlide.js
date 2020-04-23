@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components/native";
+import { useNavigation } from "@react-navigation/native";
 import { makePhotoUrl } from "../../utils";
 import Layout from "../../constants/Layout";
 import Poster from "../../components/Poster";
@@ -68,6 +69,7 @@ const MovieSlide = ({
   vote_average,
   overview,
 }) => {
+  const navigation = useNavigation();
   return (
     <Container>
       <BgImage source={{ uri: makePhotoUrl(backdrop_path) }} />
@@ -81,7 +83,11 @@ const MovieSlide = ({
               ? `${overview.substring(0, 200)}...`
               : overview}
           </Overview>
-          <BtnContainer>
+          <BtnContainer
+            onPress={() =>
+              navigation.navigate("Detail", { id, title, isMovie: true })
+            }
+          >
             <BtnContent>
               <BtnText>More Detail</BtnText>
             </BtnContent>

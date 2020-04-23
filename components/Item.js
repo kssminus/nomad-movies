@@ -1,5 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { TouchableWithoutFeedback } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 import styled from "styled-components/native";
 import Poster from "./Poster";
 import Rating from "./Rating";
@@ -14,7 +16,7 @@ const Container = styled.View`
 `;
 
 const Title = styled.Text`
-  font-size: 10px;
+  font-size: 12px;
   color: ${TINT_COLOR};
   margin-vertical: 5px;
 `;
@@ -40,26 +42,35 @@ const Item = ({
   overview,
   horizontal = true,
 }) => {
-  const displayTitle = title || name;
+  let displayTitle = title || name;
+  const navigation = useNavigation();
+
+  if (horizontal && displayTitle.length > 18) {
+    displayTitle = `${displayTitle.substring(0, 18)}...`;
+  }
+
   return (
-    <Container horizontal={horizontal}>
-      <Poster path={poster_path} />
-      <Info horizontal={horizontal}>
-        <Title>
-          {displayTitle.length > 20
-            ? `${displayTitle.substring(0, 20)}...`
-            : displayTitle}
-        </Title>
-        {vote_average ? <Rating rate={vote_average} /> : null}
-        {!horizontal && overview ? (
-          <Overview>
-            {overview.length > 200
-              ? `${overview.substring(0, 200)}...`
-              : overview}
-          </Overview>
-        ) : null}
-      </Info>
-    </Container>
+    <TouchableWithoutFeedback
+      onPress={() => {
+        console.log("press");
+        navigation.navigate("Detail", { id, title, isMovie: !!title });
+      }}
+    >
+      <Container horizontal={horizontal}>
+        <Poster path={poster_path} />
+        <Info horizontal={horizontal}>
+          <Title>{displayTitle}</Title>
+          {vote_average ? <Rating rate={vote_average} /> : null}
+          {!horizontal && overview ? (
+            <Overview>
+              {overview.length > 200
+                ? `${overview.substring(0, 200)}...`
+                : overview}
+            </Overview>
+          ) : null}
+        </Info>
+      </Container>
+    </TouchableWithoutFeedback>
   );
 };
 

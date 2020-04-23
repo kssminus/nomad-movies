@@ -15,10 +15,16 @@ const Container = styled.ScrollView`
 const SwiperHeight = Layout.height / 3;
 const View = styled.View`
   background-color: ${BG_COLOR};
-  height: ${SwiperHeight};
+  height: ${SwiperHeight}px;
 `;
 
-const MoviesPresenter = ({ loading, nowPlaying, upcoming, popular }) => {
+const MoviesPresenter = ({
+  loading,
+  nowPlaying,
+  upcoming,
+  popular,
+  ...rest
+}) => {
   return loading ? (
     <Loader />
   ) : (
@@ -50,4 +56,5 @@ MoviesPresenter.propTypes = {
   upcoming: PropTypes.array,
   popular: PropTypes.array,
 };
+
 export default MoviesPresenter;

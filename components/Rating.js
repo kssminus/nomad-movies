@@ -4,8 +4,8 @@ import styled from "styled-components/native";
 import { TINT_COLOR, GREY_COLOR } from "../constants/Colors";
 
 const Text = styled.Text`
-  color: ${(props) => (props.slide ? TINT_COLOR : GREY_COLOR)};
-  font-size: ${(props) => (props.inSlide ? "12px" : "10px")};
+  color: ${(props) => (props.inSlide ? TINT_COLOR : GREY_COLOR)};
+  font-size: ${(props) => (props.inSlide ? "16px" : "10px")};
   padding-bottom: 5px;
 `;
 
@@ -15,6 +15,7 @@ const Rating = ({ rate, inSlide = false }) => {
 
 Rating.propTypes = {
   rate: PropTypes.number.isRequired,
+  inSlide: PropTypes.bool,
 };
 
 export default Rating;
