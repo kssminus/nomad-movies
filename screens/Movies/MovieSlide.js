@@ -39,7 +39,7 @@ const Title = styled.Text`
   color: ${TINT_COLOR};
   font-size: 15px;
   font-weight: 600;
-  margin-bottom: 10px;
+  margin-bottom: 0px;
 `;
 
 const Overview = styled.Text`

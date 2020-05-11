@@ -52,8 +52,11 @@ const Item = ({
   return (
     <TouchableWithoutFeedback
       onPress={() => {
-        console.log("press");
-        navigation.navigate("Detail", { id, title, isMovie: !!title });
+        navigation.navigate("Detail", {
+          id,
+          title: displayTitle,
+          isMovie: !!title,
+        });
       }}
     >
       <Container horizontal={horizontal}>
